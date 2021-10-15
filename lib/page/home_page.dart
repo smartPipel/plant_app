@@ -171,28 +171,31 @@ class MenuList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.all(10),
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: primaryLightColor, borderRadius: BorderRadius.circular(10)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Container(
-            width: 50,
-            child: Image.asset(image.toString()),
-          ),
-          Container(
-            child: Text(
-              title.toString(),
-              style: subtitleStyle(colors: blackColor),
+    return GestureDetector(
+      onTap: () => {Navigator.pushNamed(context, '/detail', arguments: title)},
+      child: Container(
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: primaryLightColor, borderRadius: BorderRadius.circular(10)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Container(
+              width: 50,
+              child: Image.asset(image.toString()),
             ),
-          ),
-          Container(
-            child: Icon(Iconsku.chevron_right),
-          )
-        ],
+            Container(
+              child: Text(
+                title.toString(),
+                style: subtitleStyle(colors: blackColor),
+              ),
+            ),
+            Container(
+              child: Icon(Iconsku.chevron_right),
+            )
+          ],
+        ),
       ),
     );
   }

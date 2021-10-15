@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 // Colors
@@ -17,16 +18,16 @@ double deviceHeight(BuildContext context) => MediaQuery.of(context).size.height;
 String iconAssets = "assets/icons/";
 String imageAssets = "assets/images/";
 
-// Define font name
+// All about font
 
-TextStyle titleStyle = TextStyle(
+TextStyle titleStyle = GoogleFonts.poppins(
   fontSize: 22,
   color: blackColor,
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.bold,
 );
 
-TextStyle headerStyle = TextStyle(
+TextStyle headerStyle = GoogleFonts.poppins(
   height: 1.3,
   fontSize: 20,
   color: blackColor,
@@ -34,7 +35,7 @@ TextStyle headerStyle = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
-TextStyle subtitleStyle({HexColor? colors}) => TextStyle(
+TextStyle subtitleStyle({HexColor? colors}) => GoogleFonts.poppins(
       fontSize: 16,
       color: colors ?? blackColor,
       fontStyle: FontStyle.normal,
