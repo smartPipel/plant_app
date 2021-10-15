@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/Arguments/arguments.dart';
 import 'package:myapp/constants/constant.dart';
-import 'package:myapp/iconsku_icons.dart';
+import 'package:myapp/constants/iconsku_icons.dart';
+import 'package:myapp/page/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -108,12 +110,7 @@ class _HomePageState extends State<HomePage> {
                           MenuDashboard(
                             marginRight: 20,
                           ),
-                          MenuDashboard(
-                            marginRight: 20,
-                          ),
-                          MenuDashboard(
-                            marginRight: 20,
-                          ),
+                          MenuDashboard(),
                         ]),
                   ),
                   Container(
@@ -155,7 +152,7 @@ class MenuDashboard extends StatelessWidget {
       decoration: BoxDecoration(
           color: greyColor.withOpacity(0.9),
           borderRadius: BorderRadius.circular(15)),
-      width: deviceWidth(context) / 3.7,
+      width: deviceWidth(context) * .4,
       height: deviceHeight(context) / 7,
       margin: EdgeInsets.only(right: marginRight?.toInt().toDouble() ?? 0),
       child: Center(child: Text("Container")),
@@ -172,7 +169,9 @@ class MenuList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {Navigator.pushNamed(context, '/detail', arguments: title)},
+      onTap: () => {
+        Navigator.pushNamed(context, '/detail', arguments: Arguments(title))
+      },
       child: Container(
         margin: EdgeInsets.all(10),
         padding: EdgeInsets.all(10),
