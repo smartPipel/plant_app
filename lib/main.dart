@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Arguments/arguments.dart';
+import 'package:myapp/models/arguments.dart';
 import 'package:myapp/page/detail_page.dart';
 import 'package:myapp/page/home_page.dart';
 

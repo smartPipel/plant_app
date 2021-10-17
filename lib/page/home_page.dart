@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Arguments/arguments.dart';
+import 'package:myapp/models/arguments.dart';
 import 'package:myapp/constants/constant.dart';
 import 'package:myapp/constants/iconsku_icons.dart';
 import 'package:myapp/page/detail_page.dart';
@@ -36,10 +36,12 @@ class _HomePageState extends State<HomePage> {
             style: titleStyle,
           ),
           elevation: 0,
+          titleSpacing: 20,
           backgroundColor: primaryColor,
           actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 20.0),
+            Container(
+              padding: EdgeInsets.only(right: 20),
+              // margin: EdgeInsets.only(right: 20.0),
               child: Icon(
                 Iconsku.settings_future,
                 color: blackColor,
@@ -54,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 imageAssets + "bg_home_menu.png",
                 fit: BoxFit.fill,
               ),
-              height: deviceHeight(context) / 2.5,
+              height: deviceHeight(context) * .4,
               width: deviceWidth(context),
             ),
             Container(
@@ -97,27 +99,22 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    height: deviceHeight(context) / 7,
+                    height: deviceHeight(context) * .15,
                     width: deviceWidth(context),
                     margin: EdgeInsets.all(20),
                     decoration: BoxDecoration(),
-                    child: ListView(
-                        physics: ScrollPhysics(
-                            parent: NeverScrollableScrollPhysics()),
-                        // padding: EdgeInsets.all(10),
-                        scrollDirection: Axis.horizontal,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          MenuDashboard(
-                            marginRight: 20,
-                          ),
+                          MenuDashboard(),
                           MenuDashboard(),
                         ]),
                   ),
                   Container(
-                    padding: EdgeInsets.all(10),
+                    padding: EdgeInsets.all(20),
                     margin: EdgeInsets.only(right: 20, left: 20),
                     width: deviceWidth(context),
-                    height: deviceHeight(context) / 1.8,
+                    height: deviceHeight(context) * .45,
                     decoration: BoxDecoration(
                         color: greyColor.withOpacity(0.9),
                         borderRadius: BorderRadius.circular(15)),
@@ -152,8 +149,7 @@ class MenuDashboard extends StatelessWidget {
       decoration: BoxDecoration(
           color: greyColor.withOpacity(0.9),
           borderRadius: BorderRadius.circular(15)),
-      width: deviceWidth(context) * .4,
-      height: deviceHeight(context) / 7,
+      width: deviceWidth(context) * .42,
       margin: EdgeInsets.only(right: marginRight?.toInt().toDouble() ?? 0),
       child: Center(child: Text("Container")),
     );
@@ -161,7 +157,7 @@ class MenuDashboard extends StatelessWidget {
 }
 
 class MenuList extends StatelessWidget {
-  MenuList({Key? key, this.image, this.title}) : super(key: key);
+  MenuList({this.image, this.title});
 
   final String? image;
   final String? title;
@@ -181,7 +177,7 @@ class MenuList extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(
-              width: 50,
+              width: deviceWidth(context) * .1,
               child: Image.asset(image.toString()),
             ),
             Container(

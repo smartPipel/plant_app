@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/Arguments/arguments.dart';
+import 'package:myapp/models/arguments.dart';
 
 class DetailPage extends StatefulWidget {
   const DetailPage({Key? key, this.title}) : super(key: key);
@@ -17,6 +17,15 @@ class _DetailPageState extends State<DetailPage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(args.title.toString()),
+        ),
+        body: Container(
+          child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, i) {
+                return Container(
+                  child: Text("Data"),
+                );
+              }),
         ),
       ),
     );
