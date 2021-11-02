@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/models/arguments.dart';
 import 'package:myapp/constants/constant.dart';
 import 'package:myapp/constants/iconsku_icons.dart';
-import 'package:myapp/page/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -166,7 +165,8 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Navigator.pushNamed(context, '/detail', arguments: Arguments(title))
+        Navigator.pushNamed(context, '/detail',
+            arguments: Arguments(title: this.title))
       },
       child: Container(
         margin: EdgeInsets.all(10),

@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
+// BASE URL
+
+String baseUrl = 'http://192.168.0.104:3000';
+String plantApi = '$baseUrl/api/plant';
+
 // Colors
 HexColor primaryColor = HexColor("#28FFBF");
 HexColor primaryLightColor = HexColor("#F6F6F6");
@@ -21,7 +26,7 @@ String imageAssets = "assets/images/";
 // All about font
 
 TextStyle titleStyle = GoogleFonts.poppins(
-  fontSize: 22,
+  fontSize: 20,
   color: blackColor,
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.bold,
@@ -29,7 +34,7 @@ TextStyle titleStyle = GoogleFonts.poppins(
 
 TextStyle headerStyle = GoogleFonts.poppins(
   height: 1.3,
-  fontSize: 20,
+  fontSize: 18,
   color: blackColor,
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.w400,
