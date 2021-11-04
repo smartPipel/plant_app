@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/constants/constant.dart';
 import 'package:myapp/constants/iconsku_icons.dart';
+import 'package:myapp/constants/styles.dart';
 
 AppBar appBar(BuildContext context) {
   return AppBar(
     elevation: 0,
-    backgroundColor: primaryColor,
+    backgroundColor: greenColor(),
     leading: IconButton(
       icon: Icon(
         Iconsku.chevron_big_left,
-        color: blackColor,
+        color: darkColor(),
       ),
       onPressed: () => Navigator.pop(context),
     ),

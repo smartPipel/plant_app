@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:myapp/constants/constant.dart';
+import 'package:myapp/constants/styles.dart';
 import 'package:myapp/models/arguments.dart';
 import 'package:myapp/models/plant_data_provider.dart';
 import 'package:myapp/ui/widgets/app_bar_widget.dart';
@@ -29,6 +30,12 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getPlantData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final provider = Provider.of<PlantDataProvider>(context, listen: false);
 
@@ -36,7 +43,7 @@ class _DetailPageState extends State<DetailPage> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: greyColor,
+        backgroundColor: greyColor(),
         appBar: appBar(context),
         body: Container(
           child: Column(

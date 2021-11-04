@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/constants/constant.dart';
+import 'package:myapp/constants/styles.dart';
 import 'package:myapp/models/arguments.dart';
 import 'package:myapp/models/plant_data_provider.dart';
+import 'package:myapp/ui/routes/router_list.dart';
 
 class GridViewListTile extends StatelessWidget {
   final PlantDataProvider provider;
@@ -14,7 +16,7 @@ class GridViewListTile extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(
           context,
-          '/detail_data',
+          routeDetailDataScreen,
           arguments: Arguments(
             imageUrl: '$baseUrl/' +
                 provider.plantData!.data!
@@ -99,7 +101,8 @@ class GridViewListTile extends StatelessWidget {
                 height: 40,
                 width: deviceWidth(context),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: greyColor),
+                    borderRadius: BorderRadius.circular(10),
+                    color: greyColor()),
                 child: Center(
                   child: Text(provider.plantData!.data!
                       .map((e) => e.plantName)

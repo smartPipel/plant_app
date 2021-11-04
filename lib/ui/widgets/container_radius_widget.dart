@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/constants/constant.dart';
+import 'package:myapp/constants/styles.dart';
 
 class ContainerRadiusWidget extends StatelessWidget {
   final Color? color;
@@ -13,7 +13,8 @@ class ContainerRadiusWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15), color: color ?? greyColor),
+          borderRadius: BorderRadius.circular(rounded()),
+          color: color ?? greyColor()),
       child: Text(
         text.toString(),
         style: textStyle,
