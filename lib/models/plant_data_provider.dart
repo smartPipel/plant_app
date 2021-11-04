@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:myapp/Services/api_services.dart';
+import 'package:myapp/services/api_services.dart';
 import 'package:myapp/models/plant_data.dart';
 
 class PlantDataProvider with ChangeNotifier {
