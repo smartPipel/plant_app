@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:myapp/business_logic/view_models/plant_data_provider.dart';
-import 'package:myapp/ui/pages/home_page.dart';
+import 'package:myapp/ui/pages/splash_screen.dart';
 import 'package:myapp/ui/routes/router_generator.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +15,7 @@ void main() {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: SplashScreen(),
         title: "Plant",
         onGenerateRoute: RouterGenerator.generate,
       ),

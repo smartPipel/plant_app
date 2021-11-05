@@ -33,7 +33,7 @@ class GridViewListTile extends StatelessWidget {
       },
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(rounded()),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey,
@@ -61,18 +61,54 @@ class GridViewListTile extends StatelessWidget {
                     : CircularProgressIndicator(),
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    image: DecorationImage(
-                      image: NetworkImage('$baseUrl/' +
-                          data.map((e) => e.image).toList()[i].toString()),
-                      fit: BoxFit.cover,
-                    ),
+                    borderRadius: BorderRadius.circular(rounded()),
                   ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
+                  child: Stack(
+                    // crossAxisAlignment: CrossAxisAlignment
+                    children: [
+                      Column(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              height: deviceHeight(context),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(rounded()),
+                                child: Image.network(
+                                  '$baseUrl/' +
+                                      data
+                                          .map((e) => e.image)
+                                          .toList()[i]
+                                          .toString(),
+                                  fit: BoxFit.cover,
+                                  loadingBuilder: (_, child, loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+
+                                    return Center(
+                                        child: CircularProgressIndicator(
+                                            value: loadingProgress
+                                                        .expectedTotalBytes !=
+                                                    null
+                                                ? loadingProgress
+                                                        .cumulativeBytesLoaded /
+                                                    loadingProgress
+                                                        .expectedTotalBytes!
+                                                : null));
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.4),
+                          borderRadius: BorderRadius.circular(rounded()),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -83,7 +119,7 @@ class GridViewListTile extends StatelessWidget {
                   height: 40,
                   width: deviceWidth(context),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(subRounded()),
                       color: greyColor()),
                   child: Center(
                     child: Text(

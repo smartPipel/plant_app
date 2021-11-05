@@ -37,6 +37,12 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   @override
+  void dispose() {
+    Provider.of<PlantDataProvider>(context, listen: false).dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)!.settings.arguments as Arguments;
 
