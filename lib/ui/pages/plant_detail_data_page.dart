@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/business_logic/models/arguments.dart';
 import 'package:myapp/constants/constant.dart';
-import 'package:myapp/models/arguments.dart';
+import 'package:myapp/constants/styles.dart';
 import 'package:myapp/ui/widgets/app_bar_widget.dart';
 import 'package:myapp/ui/widgets/container_radius_widget.dart';
 

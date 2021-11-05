@@ -5,7 +5,7 @@ import 'package:myapp/constants/styles.dart';
 AppBar appBar(BuildContext context) {
   return AppBar(
     elevation: 0,
-    backgroundColor: greenColor(),
+    backgroundColor: greyColor(),
     leading: IconButton(
       icon: Icon(
         Iconsku.chevron_big_left,

@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
           ),
           elevation: 0,
           titleSpacing: 20,
-          backgroundColor: darkColor(),
+          backgroundColor: greenColor(),
           actions: [
             Container(
               padding: EdgeInsets.only(right: 20),

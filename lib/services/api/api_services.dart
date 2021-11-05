@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:myapp/business_logic/models/plant_data.dart';
 import 'package:myapp/constants/constant.dart';
-import 'package:myapp/models/plant_data.dart';
 
 class ApiServices {
   Dio dio = Dio();

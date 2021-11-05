@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/business_logic/models/arguments.dart';
 import 'package:myapp/constants/constant.dart';
 import 'package:myapp/constants/iconsku_icons.dart';
 import 'package:myapp/constants/styles.dart';
-import 'package:myapp/models/arguments.dart';
 import 'package:myapp/ui/routes/router_list.dart';
 
 class MenuList extends StatelessWidget {
@@ -15,8 +15,11 @@ class MenuList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        Navigator.pushNamed(context, routeDetailScreen,
-            arguments: Arguments(title: this.title))
+        Navigator.pushNamed(
+          context,
+          routeDetailScreen,
+          arguments: Arguments(title: this.title),
+        )
       },
       child: Container(
         margin: EdgeInsets.all(10),
