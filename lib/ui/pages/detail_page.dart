@@ -37,33 +37,20 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   @override
-  void dispose() {
-    Provider.of<PlantDataProvider>(context, listen: false).dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as Arguments;
+    // final args = ModalRoute.of(context)!.settings.arguments as Arguments;
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: greyColor(),
-        appBar: appBar(context),
+        // appBar: appBar(context),
         body: Container(
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(top: 10),
-                child: Text(
-                  args.title.toString(),
-                  style: headerStyle,
-                ),
-              ),
               Expanded(
                 flex: 10,
                 child: Consumer<PlantDataProvider>(
-                    builder: (context, snapshot, child) {
+                    builder: (context, snapshot, _) {
                   return Container(
                     height: deviceHeight(context),
                     width: deviceWidth(context),
@@ -76,7 +63,7 @@ class _DetailPageState extends State<DetailPage> {
                                 new StaggeredTile.count(2, index.isOdd ? 4 : 3),
                             itemCount: snapshot.plantData != null
                                 ? snapshot.plantData!.dataLength
-                                : 8,
+                                : 0,
                             crossAxisCount: 4,
                             mainAxisSpacing: 4.0,
                             crossAxisSpacing: 4.0,

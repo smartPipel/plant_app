@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // URL
 
-String baseUrl = 'http://192.168.0.190:3000';
+String baseUrl = 'https://plant-api.smartpipel.repl.co/';
 String plantApi = '$baseUrl/api/plant';
 
 // Devices size

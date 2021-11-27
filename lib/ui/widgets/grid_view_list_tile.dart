@@ -10,7 +10,7 @@ class GridViewListTile extends StatelessWidget {
   final PlantDataProvider provider;
   final int i;
   GridViewListTile(this.provider, this.i);
-  get data => provider.plantData!.data!;
+  get data => provider.plantData!.data;
 
   @override
   Widget build(BuildContext context) {
@@ -33,24 +33,20 @@ class GridViewListTile extends StatelessWidget {
       },
       child: Container(
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(rounded()),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: const Offset(
-                    3.0,
-                    3.0,
-                  ),
-                  blurRadius: 6.0,
-                  spreadRadius: 0,
-                ), //BoxShadow
-                BoxShadow(
-                  color: Colors.white,
-                  offset: const Offset(0.0, 0.0),
-                  blurRadius: 0.0,
-                  spreadRadius: 0.0,
-                ), //BoxShadow
-              ]),
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(rounded()),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.grey,
+            //     offset: const Offset(
+            //       6.0,
+            //       6.0,
+            //     ),
+            //     blurRadius: 6.0,
+            //     spreadRadius: 0,
+            //   ), //BoxShadow
+            // ],
+          ),
           width: deviceWidth(context) * .2,
           margin: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
           child: Stack(
@@ -86,15 +82,18 @@ class GridViewListTile extends StatelessWidget {
                                     }
 
                                     return Center(
-                                        child: CircularProgressIndicator(
-                                            value: loadingProgress
-                                                        .expectedTotalBytes !=
-                                                    null
-                                                ? loadingProgress
-                                                        .cumulativeBytesLoaded /
-                                                    loadingProgress
-                                                        .expectedTotalBytes!
-                                                : null));
+                                      child: CircularProgressIndicator(
+                                        value: loadingProgress
+                                                    .expectedTotalBytes !=
+                                                null
+                                            ? loadingProgress
+                                                    .cumulativeBytesLoaded /
+                                                loadingProgress
+                                                    .expectedTotalBytes!
+                                            : null,
+                                        color: greenColor(),
+                                      ),
+                                    );
                                   },
                                 ),
                               ),

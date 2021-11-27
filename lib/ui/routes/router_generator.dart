@@ -11,13 +11,13 @@ class RouterGenerator {
     switch (settings.name) {
       case routeHomeScreen:
         return MaterialPageRoute(builder: (_) => HomePage());
-      case routeDetailScreen:
-        final args = settings.arguments as Arguments;
-        return MaterialPageRoute(
-            builder: (_) => DetailPage(
-                  title: args.title,
-                ),
-            settings: settings);
+      // case routeDetailScreen:
+      //   final args = settings.arguments as Arguments;
+      //   return MaterialPageRoute(
+      //       builder: (_) => DetailPage(
+      //             title: args.title,
+      //           ),
+      //       settings: settings);
       case routeDetailDataScreen:
         final args = settings.arguments as Arguments;
         return MaterialPageRoute(
